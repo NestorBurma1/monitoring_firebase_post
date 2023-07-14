@@ -16,8 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TraderPriceTable {
+  int get id => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
-  String? get traderName => throw _privateConstructorUsedError;
+  String get traderName => throw _privateConstructorUsedError;
   List<Product>? get listProducts => throw _privateConstructorUsedError;
   List<String>? get listComments => throw _privateConstructorUsedError;
 
@@ -33,8 +34,9 @@ abstract class $TraderPriceTableCopyWith<$Res> {
       _$TraderPriceTableCopyWithImpl<$Res, TraderPriceTable>;
   @useResult
   $Res call(
-      {DateTime date,
-      String? traderName,
+      {int id,
+      DateTime date,
+      String traderName,
       List<Product>? listProducts,
       List<String>? listComments});
 }
@@ -52,20 +54,25 @@ class _$TraderPriceTableCopyWithImpl<$Res, $Val extends TraderPriceTable>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? date = null,
-    Object? traderName = freezed,
+    Object? traderName = null,
     Object? listProducts = freezed,
     Object? listComments = freezed,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      traderName: freezed == traderName
+      traderName: null == traderName
           ? _value.traderName
           : traderName // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       listProducts: freezed == listProducts
           ? _value.listProducts
           : listProducts // ignore: cast_nullable_to_non_nullable
@@ -87,8 +94,9 @@ abstract class _$$_TraderPriceTableCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {DateTime date,
-      String? traderName,
+      {int id,
+      DateTime date,
+      String traderName,
       List<Product>? listProducts,
       List<String>? listComments});
 }
@@ -104,20 +112,25 @@ class __$$_TraderPriceTableCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? date = null,
-    Object? traderName = freezed,
+    Object? traderName = null,
     Object? listProducts = freezed,
     Object? listComments = freezed,
   }) {
     return _then(_$_TraderPriceTable(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      traderName: freezed == traderName
+      traderName: null == traderName
           ? _value.traderName
           : traderName // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       listProducts: freezed == listProducts
           ? _value._listProducts
           : listProducts // ignore: cast_nullable_to_non_nullable
@@ -134,7 +147,8 @@ class __$$_TraderPriceTableCopyWithImpl<$Res>
 
 class _$_TraderPriceTable implements _TraderPriceTable {
   _$_TraderPriceTable(
-      {required this.date,
+      {required this.id,
+      required this.date,
       required this.traderName,
       final List<Product>? listProducts,
       final List<String>? listComments})
@@ -142,9 +156,11 @@ class _$_TraderPriceTable implements _TraderPriceTable {
         _listComments = listComments;
 
   @override
+  final int id;
+  @override
   final DateTime date;
   @override
-  final String? traderName;
+  final String traderName;
   final List<Product>? _listProducts;
   @override
   List<Product>? get listProducts {
@@ -167,7 +183,7 @@ class _$_TraderPriceTable implements _TraderPriceTable {
 
   @override
   String toString() {
-    return 'TraderPriceTable(date: $date, traderName: $traderName, listProducts: $listProducts, listComments: $listComments)';
+    return 'TraderPriceTable(id: $id, date: $date, traderName: $traderName, listProducts: $listProducts, listComments: $listComments)';
   }
 
   @override
@@ -175,6 +191,7 @@ class _$_TraderPriceTable implements _TraderPriceTable {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TraderPriceTable &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.traderName, traderName) ||
                 other.traderName == traderName) &&
@@ -187,6 +204,7 @@ class _$_TraderPriceTable implements _TraderPriceTable {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       date,
       traderName,
       const DeepCollectionEquality().hash(_listProducts),
@@ -201,15 +219,18 @@ class _$_TraderPriceTable implements _TraderPriceTable {
 
 abstract class _TraderPriceTable implements TraderPriceTable {
   factory _TraderPriceTable(
-      {required final DateTime date,
-      required final String? traderName,
+      {required final int id,
+      required final DateTime date,
+      required final String traderName,
       final List<Product>? listProducts,
       final List<String>? listComments}) = _$_TraderPriceTable;
 
   @override
+  int get id;
+  @override
   DateTime get date;
   @override
-  String? get traderName;
+  String get traderName;
   @override
   List<Product>? get listProducts;
   @override
