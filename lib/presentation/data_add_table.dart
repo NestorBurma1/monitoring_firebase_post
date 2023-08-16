@@ -8,19 +8,41 @@ class DataAddTable extends StatefulWidget {
 }
 
 class _DataAddTableState extends State<DataAddTable> {
+  final TextEditingController textEditingControllerDate =
+      TextEditingController(text: '16.08.2023');
+
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Column(children: [
-        DataTable(
-          columns: [DataColumn(label: Text('Дата'))],
-          rows: [
-            DataRow(cells: [
-              DataCell(Text('')),
-            ]),
-          ],
-        ),
-      ]),
+    return Center(
+      child: DataTable(
+        columns: const [
+          DataColumn(
+            label: Text('Дата'),
+          ),
+          DataColumn(
+            label: Text('Трейдер'),
+          ),
+        ],
+        rows: [
+          DataRow(cells: [
+            DataCell(
+              EditableText(
+                controller: textEditingControllerDate,
+                focusNode: FocusNode(),
+                autofocus: true,
+                style: const TextStyle(color: Colors.deepPurple),
+                cursorColor: Colors.red,
+                backgroundCursorColor: Colors.black,
+                onChanged: (value) =>
+                    textEditingControllerDate.value ,
+              ),
+            ),
+            const DataCell(
+              Text(''),
+            ),
+          ]),
+        ],
+      ),
     );
   }
 }
