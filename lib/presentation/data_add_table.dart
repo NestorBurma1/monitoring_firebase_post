@@ -8,8 +8,26 @@ class DataAddTable extends StatefulWidget {
 }
 
 class _DataAddTableState extends State<DataAddTable> {
-  final TextEditingController textEditingControllerDate =
-      TextEditingController(text: '16.08.2023');
+  TextEditingController textEditingControllerDate = TextEditingController();
+
+  @override
+  void initState() {
+    textEditingControllerDate = TextEditingController(
+      text:
+          '${getDate().toLocal().day}.${getMonth()}.${getDate().toLocal().year}',
+    );
+    super.initState();
+  }
+
+  DateTime getDate() => DateTime.now();
+
+  String getMonth() {
+    if (getDate().toLocal().month.toString().length > 1) {
+      return getDate().toLocal().month.toString();
+    } else {
+      return '0${getDate().toLocal().month}';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +51,7 @@ class _DataAddTableState extends State<DataAddTable> {
                 style: const TextStyle(color: Colors.deepPurple),
                 cursorColor: Colors.red,
                 backgroundCursorColor: Colors.black,
-                onChanged: (value) =>
-                    textEditingControllerDate.value ,
+                onChanged: (value) => textEditingControllerDate.value,
               ),
             ),
             const DataCell(
