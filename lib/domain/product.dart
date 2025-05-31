@@ -4,9 +4,16 @@ part 'product.freezed.dart';
 
 @freezed
 class Product with _$Product {
-  const factory Product({
-    required String product,
-    required String? basis,
-    required Map<String, String?> monthsAndPrices
-  }) = _Product;
+  Product({
+    required this.product,
+    required this.basis,
+    required this.monthsAndPrices,
+  });
+
+  @override
+  final String product;
+  @override
+  final String? basis;
+  @override
+  final Map<String, String?> monthsAndPrices;
 }

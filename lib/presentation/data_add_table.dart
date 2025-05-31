@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DataAddTable extends StatefulWidget {
-  const DataAddTable({super.key});
+  const DataAddTable({
+    super.key,
+  });
 
   @override
   State<DataAddTable> createState() => _DataAddTableState();
@@ -9,6 +11,7 @@ class DataAddTable extends StatefulWidget {
 
 class _DataAddTableState extends State<DataAddTable> {
   TextEditingController textEditingControllerDate = TextEditingController();
+  TextEditingController textEditingControllerIndex = TextEditingController();
 
   @override
   void initState() {
@@ -35,6 +38,9 @@ class _DataAddTableState extends State<DataAddTable> {
       child: DataTable(
         columns: const [
           DataColumn(
+            label: Text('Індекс'),
+          ),
+          DataColumn(
             label: Text('Дата'),
           ),
           DataColumn(
@@ -44,15 +50,12 @@ class _DataAddTableState extends State<DataAddTable> {
         rows: [
           DataRow(cells: [
             DataCell(
-              EditableText(
-                controller: textEditingControllerDate,
-                focusNode: FocusNode(),
-                autofocus: true,
-                style: const TextStyle(color: Colors.deepPurple),
-                cursorColor: Colors.red,
-                backgroundCursorColor: Colors.black,
-                onChanged: (value) => textEditingControllerDate.value,
-              ),
+              DataEditableText(
+                  textEditingControllerDate: textEditingControllerIndex),
+            ),
+            DataCell(
+              DataEditableText(
+                  textEditingControllerDate: textEditingControllerDate),
             ),
             const DataCell(
               Text(''),
@@ -60,6 +63,28 @@ class _DataAddTableState extends State<DataAddTable> {
           ]),
         ],
       ),
+    );
+  }
+}
+
+class DataEditableText extends StatelessWidget {
+  const DataEditableText({
+    super.key,
+    required this.textEditingControllerDate,
+  });
+
+  final TextEditingController textEditingControllerDate;
+
+  @override
+  Widget build(BuildContext context) {
+    return EditableText(
+      controller: textEditingControllerDate,
+      focusNode: FocusNode(),
+      autofocus: true,
+      style: const TextStyle(color: Colors.deepPurple),
+      cursorColor: Colors.red,
+      backgroundCursorColor: Colors.black,
+      onChanged: (value) => textEditingControllerDate.value,
     );
   }
 }

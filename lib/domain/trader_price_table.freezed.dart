@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,234 +10,112 @@ part of 'trader_price_table.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$TraderPriceTable {
-  int get id => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
-  String get traderName => throw _privateConstructorUsedError;
-  List<Product>? get listProducts => throw _privateConstructorUsedError;
-  List<String>? get listComments => throw _privateConstructorUsedError;
+  int get id;
+  DateTime get dateTime;
+  String get traderName;
+  List<Product>? get listProducts;
+  List<String>? get listComments;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TraderPriceTable
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $TraderPriceTableCopyWith<TraderPriceTable> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TraderPriceTableCopyWith<$Res> {
-  factory $TraderPriceTableCopyWith(
-          TraderPriceTable value, $Res Function(TraderPriceTable) then) =
-      _$TraderPriceTableCopyWithImpl<$Res, TraderPriceTable>;
-  @useResult
-  $Res call(
-      {int id,
-      DateTime date,
-      String traderName,
-      List<Product>? listProducts,
-      List<String>? listComments});
-}
-
-/// @nodoc
-class _$TraderPriceTableCopyWithImpl<$Res, $Val extends TraderPriceTable>
-    implements $TraderPriceTableCopyWith<$Res> {
-  _$TraderPriceTableCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? date = null,
-    Object? traderName = null,
-    Object? listProducts = freezed,
-    Object? listComments = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      traderName: null == traderName
-          ? _value.traderName
-          : traderName // ignore: cast_nullable_to_non_nullable
-              as String,
-      listProducts: freezed == listProducts
-          ? _value.listProducts
-          : listProducts // ignore: cast_nullable_to_non_nullable
-              as List<Product>?,
-      listComments: freezed == listComments
-          ? _value.listComments
-          : listComments // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_TraderPriceTableCopyWith<$Res>
-    implements $TraderPriceTableCopyWith<$Res> {
-  factory _$$_TraderPriceTableCopyWith(
-          _$_TraderPriceTable value, $Res Function(_$_TraderPriceTable) then) =
-      __$$_TraderPriceTableCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int id,
-      DateTime date,
-      String traderName,
-      List<Product>? listProducts,
-      List<String>? listComments});
-}
-
-/// @nodoc
-class __$$_TraderPriceTableCopyWithImpl<$Res>
-    extends _$TraderPriceTableCopyWithImpl<$Res, _$_TraderPriceTable>
-    implements _$$_TraderPriceTableCopyWith<$Res> {
-  __$$_TraderPriceTableCopyWithImpl(
-      _$_TraderPriceTable _value, $Res Function(_$_TraderPriceTable) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? date = null,
-    Object? traderName = null,
-    Object? listProducts = freezed,
-    Object? listComments = freezed,
-  }) {
-    return _then(_$_TraderPriceTable(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      traderName: null == traderName
-          ? _value.traderName
-          : traderName // ignore: cast_nullable_to_non_nullable
-              as String,
-      listProducts: freezed == listProducts
-          ? _value._listProducts
-          : listProducts // ignore: cast_nullable_to_non_nullable
-              as List<Product>?,
-      listComments: freezed == listComments
-          ? _value._listComments
-          : listComments // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_TraderPriceTable implements _TraderPriceTable {
-  _$_TraderPriceTable(
-      {required this.id,
-      required this.date,
-      required this.traderName,
-      final List<Product>? listProducts,
-      final List<String>? listComments})
-      : _listProducts = listProducts,
-        _listComments = listComments;
+      _$TraderPriceTableCopyWithImpl<TraderPriceTable>(
+          this as TraderPriceTable, _$identity);
 
   @override
-  final int id;
-  @override
-  final DateTime date;
-  @override
-  final String traderName;
-  final List<Product>? _listProducts;
-  @override
-  List<Product>? get listProducts {
-    final value = _listProducts;
-    if (value == null) return null;
-    if (_listProducts is EqualUnmodifiableListView) return _listProducts;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<String>? _listComments;
-  @override
-  List<String>? get listComments {
-    final value = _listComments;
-    if (value == null) return null;
-    if (_listComments is EqualUnmodifiableListView) return _listComments;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  String toString() {
-    return 'TraderPriceTable(id: $id, date: $date, traderName: $traderName, listProducts: $listProducts, listComments: $listComments)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TraderPriceTable &&
+            other is TraderPriceTable &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.date, date) || other.date == date) &&
+            (identical(other.dateTime, dateTime) ||
+                other.dateTime == dateTime) &&
             (identical(other.traderName, traderName) ||
                 other.traderName == traderName) &&
             const DeepCollectionEquality()
-                .equals(other._listProducts, _listProducts) &&
+                .equals(other.listProducts, listProducts) &&
             const DeepCollectionEquality()
-                .equals(other._listComments, _listComments));
+                .equals(other.listComments, listComments));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      date,
+      dateTime,
       traderName,
-      const DeepCollectionEquality().hash(_listProducts),
-      const DeepCollectionEquality().hash(_listComments));
+      const DeepCollectionEquality().hash(listProducts),
+      const DeepCollectionEquality().hash(listComments));
 
-  @JsonKey(ignore: true)
   @override
+  String toString() {
+    return 'TraderPriceTable(id: $id, dateTime: $dateTime, traderName: $traderName, listProducts: $listProducts, listComments: $listComments)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $TraderPriceTableCopyWith<$Res> {
+  factory $TraderPriceTableCopyWith(
+          TraderPriceTable value, $Res Function(TraderPriceTable) _then) =
+      _$TraderPriceTableCopyWithImpl;
+  @useResult
+  $Res call(
+      {int id,
+      DateTime dateTime,
+      String traderName,
+      List<Product>? listProducts,
+      List<String>? listComments});
+}
+
+/// @nodoc
+class _$TraderPriceTableCopyWithImpl<$Res>
+    implements $TraderPriceTableCopyWith<$Res> {
+  _$TraderPriceTableCopyWithImpl(this._self, this._then);
+
+  final TraderPriceTable _self;
+  final $Res Function(TraderPriceTable) _then;
+
+  /// Create a copy of TraderPriceTable
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  _$$_TraderPriceTableCopyWith<_$_TraderPriceTable> get copyWith =>
-      __$$_TraderPriceTableCopyWithImpl<_$_TraderPriceTable>(this, _$identity);
+  @override
+  $Res call({
+    Object? id = null,
+    Object? dateTime = null,
+    Object? traderName = null,
+    Object? listProducts = freezed,
+    Object? listComments = freezed,
+  }) {
+    return _then(TraderPriceTable(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      dateTime: null == dateTime
+          ? _self.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      traderName: null == traderName
+          ? _self.traderName
+          : traderName // ignore: cast_nullable_to_non_nullable
+              as String,
+      listProducts: freezed == listProducts
+          ? _self.listProducts
+          : listProducts // ignore: cast_nullable_to_non_nullable
+              as List<Product>?,
+      listComments: freezed == listComments
+          ? _self.listComments
+          : listComments // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+    ));
+  }
 }
 
-abstract class _TraderPriceTable implements TraderPriceTable {
-  factory _TraderPriceTable(
-      {required final int id,
-      required final DateTime date,
-      required final String traderName,
-      final List<Product>? listProducts,
-      final List<String>? listComments}) = _$_TraderPriceTable;
-
-  @override
-  int get id;
-  @override
-  DateTime get date;
-  @override
-  String get traderName;
-  @override
-  List<Product>? get listProducts;
-  @override
-  List<String>? get listComments;
-  @override
-  @JsonKey(ignore: true)
-  _$$_TraderPriceTableCopyWith<_$_TraderPriceTable> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on
