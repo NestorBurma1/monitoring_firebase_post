@@ -91,7 +91,7 @@ class DataEditableText extends StatelessWidget {
       style: const TextStyle(color: Colors.deepPurple),
       cursorColor: Colors.red,
       backgroundCursorColor: Colors.black,
-      onChanged: (value) => textEditingControllerDate.value,
+      onChanged: (value) => textEditingControllerDate.value.toString(),
     );
   }
 }
