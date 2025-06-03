@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../domain/trader_price_table.dart';
+
 class DataAddTable extends StatefulWidget {
+  final TraderPriceTable traderPriceTable;
+
   const DataAddTable({
     super.key,
+    required this.traderPriceTable,
   });
 
   @override
@@ -12,23 +17,25 @@ class DataAddTable extends StatefulWidget {
 class _DataAddTableState extends State<DataAddTable> {
   TextEditingController textEditingControllerDate = TextEditingController();
   TextEditingController textEditingControllerIndex = TextEditingController();
+  static final DateTime dateTime = DateTime(2020, 8, 10);
 
   @override
   void initState() {
     textEditingControllerDate = TextEditingController(
       text:
-          '${getDate().toLocal().day}.${getMonth()}.${getDate().toLocal().year}',
+          '${getDate(dateTime)?.toLocal().day}.${getMonth()}.'
+              '${getDate(dateTime)?.toLocal().year}',
     );
     super.initState();
   }
 
-  DateTime getDate() => DateTime.now();
+  DateTime? getDate(DateTime? dateTime) => dateTime ?? DateTime.now();
 
   String getMonth() {
-    if (getDate().toLocal().month.toString().length > 1) {
-      return getDate().toLocal().month.toString();
+    if (getDate(dateTime)!.toLocal().month.toString().length > 1) {
+      return getDate(dateTime)!.toLocal().month.toString();
     } else {
-      return '0${getDate().toLocal().month}';
+      return '0${getDate(dateTime)!.toLocal().month}';
     }
   }
 

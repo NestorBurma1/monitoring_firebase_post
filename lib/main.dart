@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:monitoring_firebase_post/domain/trader_price_table.dart';
 import 'package:monitoring_firebase_post/presentation/data_add_table.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final TraderPriceTable traderPriceTable = TraderPriceTable(
+      id: 1, dateTime: DateTime.now(), traderName: 'Agroprosperis');
 
   // This widget is the root of your application.
   @override
@@ -32,8 +36,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Scaffold(
-        body: DataAddTable(),
+      home: Scaffold(
+        body: DataAddTable(traderPriceTable: traderPriceTable,),
       ),
     );
   }
