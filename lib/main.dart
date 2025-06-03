@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:monitoring_firebase_post/domain/trader_price_table.dart';
 import 'package:monitoring_firebase_post/presentation/data_add_table.dart';
 
+import 'consts_ua.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -37,7 +39,13 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Scaffold(
-        body: DataAddTable(traderPriceTable: traderPriceTable,),
+        body: DataAddTable(
+          traderPriceTable: TraderPriceTable(
+            id: ConstsUa.indexes[0],
+            dateTime: ConstsUa.dates[0],
+            traderName: ConstsUa.traders[0],
+          ),
+        ),
       ),
     );
   }

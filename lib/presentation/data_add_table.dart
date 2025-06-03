@@ -15,59 +15,107 @@ class DataAddTable extends StatefulWidget {
 }
 
 class _DataAddTableState extends State<DataAddTable> {
-  TextEditingController textEditingControllerDate = TextEditingController();
-  TextEditingController textEditingControllerIndex = TextEditingController();
-  static final DateTime dateTime = DateTime(2020, 8, 10);
+  late TextEditingController textEditingControllerDate =
+      TextEditingController();
+  late TextEditingController textEditingControllerIndex =
+      TextEditingController();
+  late TextEditingController textEditingControllerTrader =
+      TextEditingController();
 
   @override
   void initState() {
+    TraderPriceTable traderPriceTable = widget.traderPriceTable;
     textEditingControllerDate = TextEditingController(
       text:
-          '${getDate(dateTime)?.toLocal().day}.${getMonth()}.'
-              '${getDate(dateTime)?.toLocal().year}',
+          '${getDate(traderPriceTable.dateTime)?.toLocal().day}.${getMonth()}.'
+          '${getDate(traderPriceTable.dateTime)?.toLocal().year}',
     );
+    textEditingControllerIndex.text = traderPriceTable.id.toString();
+    textEditingControllerTrader.text = traderPriceTable.traderName.toString();
     super.initState();
   }
 
   DateTime? getDate(DateTime? dateTime) => dateTime ?? DateTime.now();
 
   String getMonth() {
-    if (getDate(dateTime)!.toLocal().month.toString().length > 1) {
-      return getDate(dateTime)!.toLocal().month.toString();
+    if (getDate(widget.traderPriceTable.dateTime)!
+            .toLocal()
+            .month
+            .toString()
+            .length >
+        1) {
+      return getDate(widget.traderPriceTable.dateTime)!
+          .toLocal()
+          .month
+          .toString();
     } else {
-      return '0${getDate(dateTime)!.toLocal().month}';
+      return '0${getDate(widget.traderPriceTable.dateTime)!.toLocal().month}';
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: DataTable(
-        columns: const [
-          DataColumn(
-            label: Text('Індекс'),
+      child: Column(
+        children: [
+          DataTable(
+            columns: const [
+              DataColumn(
+                label: Text('Індекс'),
+              ),
+              DataColumn(
+                label: Text('Дата'),
+              ),
+              DataColumn(
+                label: Text('Трейдер'),
+              ),
+            ],
+            rows: [
+              DataRow(cells: [
+                DataCell(
+                  DataEditableText(
+                      textEditingController: textEditingControllerIndex),
+                ),
+                DataCell(
+                  DataEditableText(
+                      textEditingController: textEditingControllerDate),
+                ),
+                DataCell(
+                  DataEditableText(
+                      textEditingController: textEditingControllerTrader),
+                ),
+              ]),
+            ],
           ),
-          DataColumn(
-            label: Text('Дата'),
+          DataTable(
+            columns: const [
+              DataColumn(
+                label: Text('Індекс'),
+              ),
+              DataColumn(
+                label: Text('Дата'),
+              ),
+              DataColumn(
+                label: Text('Трейдер'),
+              ),
+            ],
+            rows: [
+              DataRow(cells: [
+                DataCell(
+                  DataEditableText(
+                      textEditingController: textEditingControllerIndex),
+                ),
+                DataCell(
+                  DataEditableText(
+                      textEditingController: textEditingControllerDate),
+                ),
+                DataCell(
+                  DataEditableText(
+                      textEditingController: textEditingControllerTrader),
+                ),
+              ]),
+            ],
           ),
-          DataColumn(
-            label: Text('Трейдер'),
-          ),
-        ],
-        rows: [
-          DataRow(cells: [
-            DataCell(
-              DataEditableText(
-                  textEditingControllerDate: textEditingControllerIndex),
-            ),
-            DataCell(
-              DataEditableText(
-                  textEditingControllerDate: textEditingControllerDate),
-            ),
-            const DataCell(
-              Text(''),
-            ),
-          ]),
         ],
       ),
     );
@@ -77,21 +125,21 @@ class _DataAddTableState extends State<DataAddTable> {
 class DataEditableText extends StatelessWidget {
   const DataEditableText({
     super.key,
-    required this.textEditingControllerDate,
+    required this.textEditingController,
   });
 
-  final TextEditingController textEditingControllerDate;
+  final TextEditingController textEditingController;
 
   @override
   Widget build(BuildContext context) {
     return EditableText(
-      controller: textEditingControllerDate,
+      controller: textEditingController,
       focusNode: FocusNode(),
       autofocus: true,
       style: const TextStyle(color: Colors.deepPurple),
       cursorColor: Colors.red,
       backgroundCursorColor: Colors.black,
-      onChanged: (value) => textEditingControllerDate.value.toString(),
+      onChanged: (value) => textEditingController.value.toString(),
     );
   }
 }
