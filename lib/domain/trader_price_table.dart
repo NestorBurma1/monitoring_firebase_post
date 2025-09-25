@@ -20,7 +20,7 @@ class TraderPriceTable with _$TraderPriceTable {
   @override
   final String traderName;
   @override
-  final List<Product>? listProducts;
+  List<Product>? listProducts;
   @override
   final List<String>? listComments;
 }
